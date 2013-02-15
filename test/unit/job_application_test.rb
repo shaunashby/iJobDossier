@@ -14,7 +14,14 @@
 require 'test_helper'
 
 class JobApplicationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "the truth" do
+    assert true
+  end
+
+  test "test new with empty attributes" do
+    app = JobApplication.new
+    assert !app.save, "JobApplication saved with empty attributes."
+  end
+
 end

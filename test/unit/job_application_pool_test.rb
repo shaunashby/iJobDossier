@@ -11,7 +11,14 @@
 require 'test_helper'
 
 class JobApplicationPoolTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "test truth" do
+    assert true
+  end
+
+  test "test new with empty attribute" do
+    pool = JobApplicationPool.new
+    assert !pool.save, "JobApplicationPool saved without user attribute."
+  end
+
 end

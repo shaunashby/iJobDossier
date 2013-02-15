@@ -15,7 +15,14 @@
 require 'test_helper'
 
 class ApplicationTargetTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "the truth" do
+    assert true
+  end
+
+  test "test new with empty attributes" do
+    target = ApplicationTarget.new
+    assert !target.save, "ApplicationTarget saved with empty attributes."
+  end
+
 end
