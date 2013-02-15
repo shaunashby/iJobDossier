@@ -3,5 +3,5 @@ class JobApplicationPool < ActiveRecord::Base
 
   has_many :job_applications
 
-  validates :user, :presence => true
+  validates :user, presence: true, unique: true
 end
