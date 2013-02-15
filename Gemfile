@@ -7,6 +7,10 @@ gem 'rails', '3.2.11'
 
 gem 'sqlite3'
 
+# Annotate models:
+group :development do
+  gem 'annotate', '2.5.0'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
