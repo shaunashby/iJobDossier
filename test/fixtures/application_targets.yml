@@ -16,14 +16,14 @@
 
 one:
   job_application_id: 1
-  company: MyString
-  contact: MyString
-  address: MyString
-  notes: MyString
+  company: Company1
+  contact: person@company1.com
+  address: Somewhere, A town, 1234 Blah
+  notes: Some notes here
 
 two:
   job_application_id: 1
-  company: MyString
-  contact: MyString
-  address: MyString
-  notes: MyString
+  company: Company2
+  contact: blah@company2.com
+  address: Anyplace, Anytown, 345 Hubbb
+  notes: More notes there...

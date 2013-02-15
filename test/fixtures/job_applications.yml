@@ -15,12 +15,12 @@
 
 one:
   job_application_pool_id: 1
-  jobtitle: MyString
-  jobref: MyString
+  jobtitle: Engineer
+  jobref: XXX123
   deadline: 2013-02-09
 
 two:
   job_application_pool_id: 1
-  jobtitle: MyString
-  jobref: MyString
+  jobtitle: Developer
+  jobref: YYY321
   deadline: 2013-02-09
