@@ -12,6 +12,8 @@
 #
 
 class JobApplication < ActiveRecord::Base
+  attr_accessible :jobtitle, :jobref, :deadline
+
   has_one :application_target
   belongs_to :job_application_pool
 
