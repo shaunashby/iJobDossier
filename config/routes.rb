@@ -1,5 +1,8 @@
 IJobDossier::Application.routes.draw do
 
+  resources :dossiers
+
+
   resources :job_application_pools
 
   # The priority is based upon order of creation:
