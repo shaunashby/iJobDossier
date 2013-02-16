@@ -14,6 +14,8 @@
 #
 
 class ApplicationTarget < ActiveRecord::Base
+  attr_accessible :company, :contact, :email, :address
+
   belongs_to :job_application
 
   validates :company, presence: true
