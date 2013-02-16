@@ -1,0 +1,23 @@
+<h1>Listing dossiers</h1>
+
+<table>
+  <tr>
+    <th>Job application</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dossiers.each do |dossier| %>
+  <tr>
+    <td><%= dossier.job_application_id %></td>
+    <td><%= link_to 'Show', dossier %></td>
+    <td><%= link_to 'Edit', edit_dossier_path(dossier) %></td>
+    <td><%= link_to 'Destroy', dossier, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Dossier', new_dossier_path %>

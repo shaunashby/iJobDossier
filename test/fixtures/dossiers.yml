@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: dossiers
+#
+#  id                 :integer          not null, primary key
+#  job_application_id :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  job_application_id: 1
+
+two:
+  job_application_id: 1
