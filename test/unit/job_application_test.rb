@@ -24,4 +24,12 @@ class JobApplicationTest < ActiveSupport::TestCase
     assert !app.save, "JobApplication saved with empty attributes."
   end
 
+  test "test validations" do
+    app = JobApplication.new(jobtitle: 'UNIX engineer',
+                             jobref: '1234XXX',
+                             deadline: '2013-02-15T17:03:03Z')
+
+    assert app.save, "JobApplication saved with valid attributes."
+  end
+
 end
