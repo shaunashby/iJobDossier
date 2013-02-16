@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216114222) do
+ActiveRecord::Schema.define(:version => 20130216131126) do
 
   create_table "application_targets", :force => true do |t|
     t.integer  "job_application_id"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20130216114222) do
     t.datetime "updated_at",         :null => false
     t.string   "email"
   end
+
+  create_table "dossiers", :force => true do |t|
+    t.integer  "job_application_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  add_index "dossiers", ["job_application_id"], :name => "index_dossiers_on_job_application_id", :unique => true
 
   create_table "job_application_pools", :force => true do |t|
     t.string   "user"
