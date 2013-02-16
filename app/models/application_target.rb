@@ -16,7 +16,8 @@ class ApplicationTarget < ActiveRecord::Base
   belongs_to :job_application
 
   validates :company, presence: true
-  CONTACT_VALIDATION_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :contact, presence: true, format: { with: CONTACT_VALIDATION_REGEX }
+  EMAIL_VALIDATION_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :contact, presence: true, length: { minimum: 5, maximum: 20 }
+  validates :email,   presence: true, format: { with: EMAIL_VALIDATION_REGEX }
   validates :address, presence: true
 end

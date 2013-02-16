@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20130215163606) do
     t.string   "notes"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.string   "email"
   end
 
   create_table "job_application_pools", :force => true do |t|
