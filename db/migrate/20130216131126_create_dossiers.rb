@@ -5,6 +5,5 @@ class CreateDossiers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :dossiers, :job_application_id, :unique => true
   end
 end

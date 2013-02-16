@@ -30,8 +30,6 @@ ActiveRecord::Schema.define(:version => 20130216131126) do
     t.datetime "updated_at",         :null => false
   end
 
-  add_index "dossiers", ["job_application_id"], :name => "index_dossiers_on_job_application_id", :unique => true
-
   create_table "job_application_pools", :force => true do |t|
     t.string   "user"
     t.datetime "created_at", :null => false
