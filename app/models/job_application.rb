@@ -15,6 +15,8 @@ class JobApplication < ActiveRecord::Base
   attr_accessible :jobtitle, :jobref, :deadline
 
   has_one :application_target
+  has_one :dossier
+
   belongs_to :job_application_pool
 
   validates :jobtitle, presence: true
