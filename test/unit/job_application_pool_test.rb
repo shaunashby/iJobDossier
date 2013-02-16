@@ -21,4 +21,9 @@ class JobApplicationPoolTest < ActiveSupport::TestCase
     assert !pool.save, "JobApplicationPool saved without user attribute."
   end
 
+  test "test validations" do
+    pool = JobApplicationPool.new(user: 'shauny')
+    assert pool.save, "JobApplicationPool saved with valid attributes."
+  end
+
 end
