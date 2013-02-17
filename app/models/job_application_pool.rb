@@ -13,7 +13,7 @@ class JobApplicationPool < ActiveRecord::Base
 
   has_many :job_applications
 
-  validates :user, presence: true, 
-                   length: { minimum: 5, maximum: 10 }, 
-                   uniqueness: {  case_sensitive: false }
+  validates :user, presence: true,
+                   length: { minimum: 5, maximum: 10 }
+
 end
