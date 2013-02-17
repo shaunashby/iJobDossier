@@ -1,12 +1,12 @@
 IJobDossier::Application.routes.draw do
 
-  resources :job_applications
-
-
-  resources :dossiers
-
-
-  resources :job_application_pools
+  resources :job_application_pools, :as => 'pools' do
+    resources :job_applications, :as => "japl" do
+      member do
+        get :dossier
+      end
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
