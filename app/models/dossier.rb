@@ -9,5 +9,7 @@
 #
 
 class Dossier < ActiveRecord::Base
+  attr_accessible :job_application_id
+
   belongs_to :job_application
 end
