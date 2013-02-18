@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216131126) do
+ActiveRecord::Schema.define(:version => 20130218154616) do
 
   create_table "application_targets", :force => true do |t|
     t.integer  "job_application_id"
