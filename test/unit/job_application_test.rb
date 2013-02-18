@@ -7,6 +7,8 @@
 #  jobtitle                :string(255)
 #  jobref                  :string(255)
 #  deadline                :date
+#  submission              :date
+#  status                  :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #

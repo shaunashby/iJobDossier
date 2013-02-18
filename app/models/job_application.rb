@@ -7,12 +7,14 @@
 #  jobtitle                :string(255)
 #  jobref                  :string(255)
 #  deadline                :date
+#  submission              :date
+#  status                  :integer
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #
 
 class JobApplication < ActiveRecord::Base
-  attr_accessible :jobtitle, :jobref, :deadline
+  attr_accessible :jobtitle, :jobref, :deadline, :submission, :status
 
   has_one :application_target
   has_one :dossier

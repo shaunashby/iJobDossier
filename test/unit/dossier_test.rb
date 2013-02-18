@@ -4,6 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  job_application_id :integer
+#  notes              :text
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

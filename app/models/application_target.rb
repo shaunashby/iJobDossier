@@ -14,7 +14,7 @@
 #
 
 class ApplicationTarget < ActiveRecord::Base
-  attr_accessible :company, :contact, :email, :address
+  attr_accessible :company, :contact, :email, :address, :notes
 
   belongs_to :job_application
 

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130216131126) do
     t.integer  "job_application_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.text     "notes"
   end
 
   create_table "job_application_pools", :force => true do |t|
@@ -43,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130216131126) do
     t.date     "deadline"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.date     "submission"
+    t.integer  "status"
   end
 
 end
