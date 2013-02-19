@@ -51,7 +51,7 @@ class JobApplicationPoolsController < ApplicationController
 
     respond_to do |format|
       if @job_application_pool.save
-        format.html { redirect_to @job_application_pool, notice: 'Job application pool was successfully created.' }
+        format.html { redirect_to pool_path(@job_application_pool), notice: 'Job application pool was successfully created.' }
         format.json { render json: @job_application_pool, status: :created, location: @job_application_pool }
       else
         format.html { render action: "new" }
@@ -67,7 +67,7 @@ class JobApplicationPoolsController < ApplicationController
 
     respond_to do |format|
       if @job_application_pool.update_attributes(params[:job_application_pool])
-        format.html { redirect_to @job_application_pool, notice: 'Job application pool was successfully updated.' }
+        format.html { redirect_to pool_path(@job_application_pool), notice: 'Job application pool was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -83,7 +83,7 @@ class JobApplicationPoolsController < ApplicationController
     @job_application_pool.destroy
 
     respond_to do |format|
-      format.html { redirect_to job_application_pools_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
