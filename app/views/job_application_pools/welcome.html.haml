@@ -1,0 +1,30 @@
+%h2 Welcome
+
+These are the current pools:
+
+%br
+
+%div.pools-contents
+ %table
+  %th Pool ID
+  %th User name
+  %th Pool Size
+  %th Created
+  %th
+  %th
+  %th
+  - @job_application_pools.each do |pool|
+   %tr
+    %td= pool.id
+    %td= pool.user
+    %td= pool.job_applications.count
+    %td= pool.created_at
+    %td= link_to 'Show', pool_path(pool)
+    %td= link_to 'Edit', edit_pool_path(pool)
+    %td= link_to 'Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' }
+
+%div.pools-create
+ = link_to 'Create new pool', new_pool_path
+
+:javascript
+  App.init = {};

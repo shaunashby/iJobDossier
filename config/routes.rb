@@ -1,4 +1,6 @@
 IJobDossier::Application.routes.draw do
+  # Set up a start page:
+  root :to => 'job_application_pools#welcome'
 
   resources :job_application_pools, :as => 'pools' do
     resources :job_applications, :as => "applications" do

@@ -1,4 +1,11 @@
 class JobApplicationPoolsController < ApplicationController
+  layout "main"
+
+  # GET /
+  def welcome
+    @job_application_pools = JobApplicationPool.all
+  end
+
   # GET /job_application_pools
   # GET /job_application_pools.json
   def index
