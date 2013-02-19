@@ -1,0 +1,24 @@
+%h2 Currently Stored Job Application Pools
+
+These are the current pools:
+
+%br
+
+%div.pools-contents
+ %table
+  %th Pool ID
+  %th User name
+  %th Pool Size
+  %th Created
+  - @job_application_pools.each do |pool|
+   %tr
+    %td= pool.id
+    %td= pool.user
+    %td= pool.job_applications.count
+    %td= pool.created_at
+
+%div.pools-create
+ = link_to 'Create new pool', new_pool_path
+
+:javascript
+  App.init = #{@job_application_pools.to_json};
