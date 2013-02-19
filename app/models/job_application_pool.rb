@@ -11,7 +11,7 @@
 class JobApplicationPool < ActiveRecord::Base
   attr_accessible :user
 
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
 
   validates :user, presence: true,
                    length: { minimum: 5, maximum: 10 }
