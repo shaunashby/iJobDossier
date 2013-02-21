@@ -44,3 +44,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # HAML
 gem 'haml'
 
+# Skeleton for nice boilerplate CSS
+gem 'skeleton-rails'
+
