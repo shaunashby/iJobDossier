@@ -3,7 +3,6 @@
  %head
   %title iJobDossier Application
   = stylesheet_link_tag    "application", :media => "all"
-  = stylesheet_link_tag    "main", :media => "all"
   = javascript_include_tag "application"
   = csrf_meta_tags
  %body
@@ -13,13 +12,14 @@
     %h1 iJobDossier
     %h3 A job application management application.
 
-  %div.container
+  %div.primary.container
    %div.sixteen.columns
-    %h1 Full Width Column
     %p#notice= notice
 
     = yield
 
-   %div.five.columns.offset-by-one
-    %hr
-    Copyright by Shaun ASHBY 2013.
+   %div.sixteen.columns.ijd-footer
+    %span.copyright
+     Designed and built by Shaun ASHBY 2013.
+    %span.gohome
+     %a{ :href => '#' } Back to top
