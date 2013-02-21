@@ -7,9 +7,19 @@
   = javascript_include_tag "application"
   = csrf_meta_tags
  %body
-  %p#notice= notice
+  %div.ijd-header
+   %div.stripes
+   %div.container
+    %h1 iJobDossier
+    %h3 A job application management application.
 
-  = yield
+  %div.container
+   %div.sixteen.columns
+    %h1 Full Width Column
+    %p#notice= notice
 
-  :javascript
-    var msg = "hello";
+    = yield
+
+   %div.five.columns.offset-by-one
+    %hr
+    Copyright by Shaun ASHBY 2013.
