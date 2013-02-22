@@ -14,7 +14,7 @@
 #
 
 class JobApplication < ActiveRecord::Base
-  attr_accessible :jobtitle, :jobref, :deadline, :submission, :status
+  attr_accessible :job_application_pool_id, :jobtitle, :jobref, :deadline, :submission, :status
 
   has_one :application_target
   has_one :dossier
