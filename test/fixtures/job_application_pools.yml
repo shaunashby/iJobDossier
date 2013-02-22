@@ -2,16 +2,19 @@
 #
 # Table name: job_application_pools
 #
-#  id         :integer          not null, primary key
-#  user       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  user        :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
   user: personone
+  description: A nice little job application pool for personone.
 
 two:
   user: persontwo
+  description: A nice little job application pool for persontwo.

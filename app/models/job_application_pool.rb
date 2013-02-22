@@ -2,14 +2,15 @@
 #
 # Table name: job_application_pools
 #
-#  id         :integer          not null, primary key
-#  user       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id          :integer          not null, primary key
+#  user        :string(255)
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 
 class JobApplicationPool < ActiveRecord::Base
-  attr_accessible :user
+  attr_accessible :user, :description
 
   has_many :job_applications, dependent: :destroy
 

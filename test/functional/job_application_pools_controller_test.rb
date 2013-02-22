@@ -24,7 +24,7 @@ class JobApplicationPoolsControllerTest < ActionController::TestCase
 
   test "should create job_application_pool" do
     assert_difference('JobApplicationPool.count') do
-      post :create, job_application_pool: { user: @job_application_pool.user }
+      post :create, job_application_pool: { user: @job_application_pool.user, description: @job_application_pool.description }
     end
     assert_redirected_to pool_path(assigns(:job_application_pool))
     assert_equal "Job application pool was successfully created.", flash[:notice]
@@ -41,7 +41,7 @@ class JobApplicationPoolsControllerTest < ActionController::TestCase
   end
 
   test "should update job_application_pool" do
-    put :update, id: @job_application_pool, job_application_pool: { user: @job_application_pool.user }
+    put :update, id: @job_application_pool, job_application_pool: { user: @job_application_pool.user, description: @job_application_pool.description }
     assert_redirected_to pool_path(assigns(:job_application_pool))
     assert_equal "Job application pool was successfully updated.", flash[:notice]
   end

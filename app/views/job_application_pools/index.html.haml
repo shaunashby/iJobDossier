@@ -8,12 +8,14 @@ These are the current pools:
  %table
   %th Pool ID
   %th User name
+  %th Description
   %th Pool Size
   %th Created
   - @job_application_pools.each do |pool|
    %tr
     %td= pool.id
     %td= pool.user
+    %td= pool.description
     %td= pool.job_applications.count
     %td= pool.created_at
 

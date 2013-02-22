@@ -1,26 +1,29 @@
 %div.five.columns
  
  %h4 Job Pools
- These are the current pools registered.
- Click to create a new pool.
+ Welcome! A job pool is a collection of job applications, grouped for
+ easy reference. The current pools on this system are shown in the
+ table on the right.
+ %p
+ = link_to 'Create a new Pool', new_pool_path, :class => 'button'
 
-%div.twelve.columns
+%div.eleven.columns
  %table
-  %th Pool ID
   %th User name
-  %th Pool Size
-  %th Created
+  %th Description
+  %th N/app
+  %th Last Update
   %th
   %th
   %th
   - @job_application_pools.each do |pool|
    %tr
-    %td= pool.id
     %td= pool.user
+    %td= pool.description
     %td= pool.job_applications.count
-    %td= pool.created_at
+    %td= pool.updated_at.getlocal
     %td= link_to 'Show', pool_path(pool)
     %td= link_to 'Edit', edit_pool_path(pool)
     %td= link_to 'Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' }
 
- = link_to 'Create Pool', new_pool_path, :class => 'button'
+%br.clear
