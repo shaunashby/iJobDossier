@@ -1,13 +1,12 @@
 class JobApplicationPoolsController < ApplicationController
   layout "main"
 
-  # GET /
+  # GET / root
   def welcome
     @job_application_pools = JobApplicationPool.all
   end
 
-  # GET /job_application_pools
-  # GET /job_application_pools.json
+  # GET /job_application_pools(.:format) pools
   def index
     @job_application_pools = JobApplicationPool.all
 
@@ -17,8 +16,7 @@ class JobApplicationPoolsController < ApplicationController
     end
   end
 
-  # GET /job_application_pools/1
-  # GET /job_application_pools/1.json
+  # GET /job_application_pools/:id(.:format) pool
   def show
     @job_application_pool = JobApplicationPool.find(params[:id])
 
@@ -28,8 +26,7 @@ class JobApplicationPoolsController < ApplicationController
     end
   end
 
-  # GET /job_application_pools/new
-  # GET /job_application_pools/new.json
+  # GET /job_application_pools/new(.:format) new_pool
   def new
     @job_application_pool = JobApplicationPool.new
 
@@ -39,13 +36,12 @@ class JobApplicationPoolsController < ApplicationController
     end
   end
 
-  # GET /job_application_pools/1/edit
+  # GET /job_application_pools/:id/edit(.:format) edit_pool
   def edit
     @job_application_pool = JobApplicationPool.find(params[:id])
   end
 
-  # POST /job_application_pools
-  # POST /job_application_pools.json
+  # POST /job_application_pools(.:format)
   def create
     @job_application_pool = JobApplicationPool.new(params[:job_application_pool])
 
@@ -60,8 +56,7 @@ class JobApplicationPoolsController < ApplicationController
     end
   end
 
-  # PUT /job_application_pools/1
-  # PUT /job_application_pools/1.json
+  # PUT /job_application_pools/:id(.:format)
   def update
     @job_application_pool = JobApplicationPool.find(params[:id])
 
@@ -76,8 +71,7 @@ class JobApplicationPoolsController < ApplicationController
     end
   end
 
-  # DELETE /job_application_pools/1
-  # DELETE /job_application_pools/1.json
+  # DELETE /job_application_pools/:id(.:format)
   def destroy
     @job_application_pool = JobApplicationPool.find(params[:id])
     @job_application_pool.destroy
