@@ -1,0 +1,12 @@
+%p
+ %b Jobtitle:
+ = @job_application.jobtitle
+%p
+ %b Jobref:
+ = @job_application.jobref
+%p
+ %b Deadline:
+ = @job_application.deadline
+
+= link_to 'Edit', edit_pool_application_path(@job_application)
+= link_to 'Back', pool_applications_path
