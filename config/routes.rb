@@ -5,6 +5,7 @@ IJobDossier::Application.routes.draw do
   resources :job_application_pools, :as => 'pools' do
     resources :job_applications, :as => "applications" do
       member do
+        get :target
         get :dossier
       end
     end
