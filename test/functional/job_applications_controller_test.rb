@@ -5,38 +5,56 @@ class JobApplicationsControllerTest < ActionController::TestCase
     @job_application = job_applications(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:job_applications)
+  test "route should match job_applications#dossier" do
+    assert_routing '/job_application_pools/1/job_applications/1/dossier', {
+      :controller => "job_applications",
+      :action => "dossier",
+      :pool_id => "1",
+      :id => "1"
+    }
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
+  test "route should match job_applications#target" do
+    assert_routing '/job_application_pools/1/job_applications/1/target', {
+      :controller => "job_applications",
+      :action => "target",
+      :pool_id => "1",
+      :id => "1"
+    }
   end
 
-  test "should create job_application" do
-    assert_difference('JobApplication.count') do
-      post :create, job_application: { deadline: @job_application.deadline, jobref: @job_application.jobref, jobtitle: @job_application.jobtitle }
-    end
-
-    assert_redirected_to job_application_path(assigns(:job_application))
+  test "route should match job_applications#index" do
+    assert_routing '/job_application_pools/1/job_applications', {
+      :controller => "job_applications",
+      :action => "index",
+      :pool_id => "1"
+    }
   end
 
-  test "should show job_application" do
-    get :show, id: @job_application
-    assert_response :success
+  test "route should match job_applications#new" do
+    assert_routing '/job_application_pools/1/job_applications/new', {
+      :controller => "job_applications",
+      :action => "new",
+      :pool_id => "1"
+    }
   end
 
-  test "should get edit" do
-    get :edit, id: @job_application
-    assert_response :success
+  test "route should match job_applications#edit" do
+    assert_routing '/job_application_pools/1/job_applications/1/edit', {
+      :controller => "job_applications",
+      :action => "edit",
+      :pool_id => "1",
+      :id => "1"
+    }
   end
 
-  test "should update job_application" do
-    put :update, id: @job_application, job_application: { deadline: @job_application.deadline, jobref: @job_application.jobref, jobtitle: @job_application.jobtitle }
-    assert_redirected_to job_application_path(assigns(:job_application))
+  test "route should match job_applications#show" do
+    assert_routing '/job_application_pools/1/job_applications/1', {
+      :controller => "job_applications",
+      :action => "show",
+      :pool_id => "1",
+      :id => "1"
+    }
   end
 
   test "should destroy job_application" do
