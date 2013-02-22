@@ -1,6 +1,6 @@
 class JobApplicationsController < ApplicationController
-  # GET /job_applications
-  # GET /job_applications.json
+
+  # GET /job_application_pools/:pool_id/job_applications(.:format) pool_applications
   def index
     @job_applications = JobApplication.all
 
@@ -10,8 +10,7 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # GET /job_applications/1
-  # GET /job_applications/1.json
+  # GET /job_application_pools/:pool_id/job_applications/:id(.:format) pool_application
   def show
     @job_application = JobApplication.find(params[:id])
 
@@ -21,10 +20,9 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # GET /job_applications/new
-  # GET /job_applications/new.json
+  # GET /job_application_pools/:pool_id/job_applications/new(.:format) new_pool_application_path
   def new
-    @job_application = JobApplication.new
+    @job_application = JobApplication.new(job_application_pool_id: params[:pool_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,13 +30,12 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # GET /job_applications/1/edit
+  # GET /job_application_pools/:pool_id/job_applications/:id/edit(.:format) edit_pool_application
   def edit
     @job_application = JobApplication.find(params[:id])
   end
 
-  # POST /job_applications
-  # POST /job_applications.json
+  # POST job_application_pools/:pool_id/job_applications(.:format)
   def create
     @job_application = JobApplication.new(params[:job_application])
 
@@ -69,8 +66,7 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # DELETE /job_applications/1
-  # DELETE /job_applications/1.json
+  # DELETE /job_application_pools/:pool_id/job_applications/:id(.:format)
   def destroy
     @job_application = JobApplication.find(params[:id])
     @job_application.destroy
