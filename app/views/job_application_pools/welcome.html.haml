@@ -1,10 +1,10 @@
-%h2 Welcome
+%div.five.columns
+ 
+ %h4 Job Pools
+ These are the current pools registered.
+ Click to create a new pool.
 
-These are the current pools:
-
-%br
-
-%div.pools-contents
+%div.twelve.columns
  %table
   %th Pool ID
   %th User name
@@ -23,8 +23,4 @@ These are the current pools:
     %td= link_to 'Edit', edit_pool_path(pool)
     %td= link_to 'Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' }
 
-%div.pools-create
- = link_to 'Create new pool', new_pool_path
-
-:javascript
-  var App = {};
+ = link_to 'Create Pool', new_pool_path, :class => 'button'
