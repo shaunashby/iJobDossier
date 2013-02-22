@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require base
- *= require layout
  *= require skeleton
+ *= require layout
  *= require_tree .
  */
