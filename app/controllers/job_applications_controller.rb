@@ -50,8 +50,7 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # PUT /job_applications/1
-  # PUT /job_applications/1.json
+  # PUT /job_application_pools/:pool_id/job_applications/:id(.:format)
   def update
     @job_application = JobApplication.find(params[:id])
 
