@@ -12,4 +12,19 @@
 require 'test_helper'
 
 class CoverLetterTest < ActiveSupport::TestCase
+
+  test "the truth" do
+    assert true
+  end
+
+  test "test new with empty attributes" do
+    letter = CoverLetter.new
+    assert !letter.save, "CoverLetter saved with empty attributes."
+  end
+
+  test "test validations" do
+    letter = CoverLetter.new(lang: 'EN')
+    assert letter.save, "CoverLetter saved with valid attributes."
+  end
+
 end
