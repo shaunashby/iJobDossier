@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: references
+#
+#  id           :integer          not null, primary key
+#  dossier_id   :integer
+#  from         :string(255)
+#  organisation :string(255)
+#  rawdata      :string(255)
+#  location     :string(255)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dossier_id: 1
+  from: A.Person
+  organisation: CDSI
+  rawdata: 4134545jjjj44t13k4jtkb34ltkb13l4htbl13hbtlkh13b5lth1b35ltkb1l3k5btlb
+  location: /path/to/files/Ref1.pdf
+
+two:
+  dossier_id: 1
+  from: A.N.Other
+  organisation: NREC
+  rawdata: 4134545jjjj44t13k4jtkb34ltkb13l4htbl13hbtlkh13b5lth1b35ltkb1l3k5btlb
+  location: /path/to/files/Ref2.pdf
