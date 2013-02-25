@@ -16,6 +16,11 @@
    %tr
     %td Current Status
     %td= @job_application.status
+ %table.dossier
+  %tbody
+   %tr
+    %td Dossier notes
+    %td= @job_application.dossier.notes
 %br.clear
 
 = link_to('Edit', edit_pool_application_path)
