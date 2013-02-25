@@ -1,6 +1,24 @@
 class JobApplicationsController < ApplicationController
   layout "main"
 
+  # GET /job_application_pools/:pool_id/job_applications/:id/target(.:format) target_pool_application
+  def target
+    @target = JobApplication.find(params[:id]).application_target
+
+    respond_to do |format|
+      format.json { render json: @target }
+    end
+  end
+
+  # GET /job_application_pools/:pool_id/job_applications/:id/dossier(.:format) dossier_pool_application
+  def dossier
+    @dossier = JobApplication.find(params[:id]).dossier
+
+    respond_to do |format|
+      format.json { render json: @dossier }
+    end
+  end
+
   # GET /job_application_pools/:pool_id/job_applications(.:format) pool_applications
   def index
     @job_applications = JobApplicationPool.find(params[:pool_id]).job_applications
