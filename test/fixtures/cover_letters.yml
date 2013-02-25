@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: cover_letters
+#
+#  id         :integer          not null, primary key
+#  dossier_id :integer
+#  lang       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dossier_id: 1
+  lang: EN
+
+two:
+  dossier_id: 1
+  lang: FR
