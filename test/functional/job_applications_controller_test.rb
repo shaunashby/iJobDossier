@@ -57,11 +57,13 @@ class JobApplicationsControllerTest < ActionController::TestCase
     }
   end
 
-  test "should destroy job_application" do
-    assert_difference('JobApplication.count', -1) do
-      delete :destroy, id: @job_application
-    end
-
-    assert_redirected_to job_applications_path
+  test "route should match job_applications#destroy" do
+    assert_routing({ :method => :delete, :path => '/job_application_pools/1/job_applications/1' }, {
+      :controller => "job_applications",
+      :action => "destroy",
+      :pool_id => "1",
+      :id => "1"
+    })
   end
+
 end
