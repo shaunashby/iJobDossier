@@ -9,21 +9,23 @@
 
 %div.eleven.columns
  %table
-  %th User name
-  %th Description
-  %th N/app
-  %th Last Update
-  %th
-  %th
-  %th
-  - @job_application_pools.each do |pool|
+  %thead
    %tr
-    %td= pool.user
-    %td= pool.description
-    %td= pool.job_applications.count
-    %td= pool.updated_at.getlocal
-    %td= link_to('Show', pool_path(pool))
-    %td= link_to('Edit', edit_pool_path(pool))
-    %td= link_to('Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' })
-
+    %th User name
+    %th Description
+    %th N/app
+    %th Last Update
+    %th
+    %th
+    %th
+  %tbody
+   - @job_application_pools.each do |pool|
+    %tr
+     %td= pool.user
+     %td= pool.description
+     %td= pool.job_applications.count
+     %td= pool.updated_at.getlocal
+     %td= link_to('Show Applications', pool_applications_path(pool))
+     %td= link_to('Edit', edit_pool_path(pool))
+     %td= link_to('Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' })
 %br.clear
