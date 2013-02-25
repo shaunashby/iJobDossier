@@ -1,8 +1,9 @@
 class JobApplicationsController < ApplicationController
+  layout "main"
 
   # GET /job_application_pools/:pool_id/job_applications(.:format) pool_applications
   def index
-    @job_applications = JobApplication.all
+    @job_applications = JobApplicationPool.find(params[:pool_id]).job_applications
 
     respond_to do |format|
       format.html # index.html.erb
@@ -22,7 +23,7 @@ class JobApplicationsController < ApplicationController
 
   # GET /job_application_pools/:pool_id/job_applications/new(.:format) new_pool_application_path
   def new
-    @job_application = JobApplication.new(job_application_pool_id: params[:pool_id])
+    @job_application = JobApplication.new(params[:id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,11 +38,12 @@ class JobApplicationsController < ApplicationController
 
   # POST job_application_pools/:pool_id/job_applications(.:format)
   def create
-    @job_application = JobApplication.new(params[:job_application])
+    @job_application = JobApplicationPool.find(params[:pool_id]).job_applications.build(params[:job_application])
 
     respond_to do |format|
       if @job_application.save
-        format.html { redirect_to @job_application, notice: 'Job application was successfully created.' }
+        flash[:notice]="Job application was successfully created."
+        format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
         format.json { render json: @job_application, status: :created, location: @job_application }
       else
         format.html { render action: "new" }
@@ -56,7 +58,8 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.update_attributes(params[:job_application])
-        format.html { redirect_to @job_application, notice: 'Job application was successfully updated.' }
+        flash[:notice]="Job application was successfully updated."
+        format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -71,7 +74,7 @@ class JobApplicationsController < ApplicationController
     @job_application.destroy
 
     respond_to do |format|
-      format.html { redirect_to job_applications_url }
+      format.html { redirect_to pool_applications_path }
       format.json { head :no_content }
     end
   end
