@@ -9,26 +9,27 @@
 
 %div.eleven.columns
  %table
-  %th Pool ID
-  %th Job Title
-  %th Job Reference
-  %th Deadline
-  %th Last Update
-  %th Submission Date
-  %th Status
-  %th
-  %th
-  %th
-  - @job_applications.each do |app|
+  %thead
    %tr
-    %td= app.job_application_pool_id
-    %td= app.jobtitle
-    %td= app.jobref
-    %td= app.deadline
-    %td= app.updated_at.getlocal
-    %td= app.submission
-    %td= app.status
-    %td= link_to('Show',    { :controller => 'job_applications', :action => 'show', :id => app, :pool_id => app.job_application_pool_id })
-    %td= link_to('Edit',    { :controller => 'job_applications', :action => 'edit', :id => app, :pool_id => app.job_application_pool_id })
-    %td= link_to('Destroy', { :controller => 'job_applications', :action => 'destroy', :id => app, :pool_id => app.job_application_pool_id }, { method: :delete, data: { confirm: 'Are you sure?' } })
+    %th Job Title
+    %th Job Reference
+    %th Deadline
+    %th Last Update
+    %th Submission Date
+    %th Status
+    %th
+    %th
+    %th
+  %tbody
+   - @job_applications.each do |app|
+    %tr
+     %td= app.jobtitle
+     %td= app.jobref
+     %td= app.deadline
+     %td= app.updated_at.getlocal
+     %td= app.submission
+     %td= app.status
+     %td= link_to('Show',    { :controller => 'job_applications', :action => 'show', :id => app, :pool_id => app.job_application_pool_id })
+     %td= link_to('Edit',    { :controller => 'job_applications', :action => 'edit', :id => app, :pool_id => app.job_application_pool_id })
+     %td= link_to('Destroy', { :controller => 'job_applications', :action => 'destroy', :id => app, :pool_id => app.job_application_pool_id }, { method: :delete, data: { confirm: 'Are you sure?' } })
 %br.clear

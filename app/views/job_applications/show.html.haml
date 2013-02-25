@@ -1,15 +1,22 @@
-%p
- %b Jobtitle:
- = @job_application.jobtitle
-%p
- %b Jobref:
- = @job_application.jobref
-%p
- %b Deadline:
- = @job_application.deadline
-%p
- %b Status:
- = @job_application.status
+%div.five.columns
+
+ %h4= @job_application.jobtitle
+
+ %p
+
+%div.eleven.columns
+ %table.jobapplication
+  %tbody
+   %tr
+    %td Job reference
+    %td= @job_application.jobref
+   %tr
+    %td Deadline
+    %td= @job_application.deadline
+   %tr
+    %td Current Status
+    %td= @job_application.status
+%br.clear
 
 = link_to('Edit', edit_pool_application_path)
 = link_to('Back', pool_applications_path)
