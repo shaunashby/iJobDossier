@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222124903) do
+ActiveRecord::Schema.define(:version => 20130225134924) do
 
   create_table "application_targets", :force => true do |t|
     t.integer  "job_application_id"
     t.string   "company"
     t.string   "contact"
     t.string   "address"
-    t.string   "notes"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.text     "notes",              :limit => 255
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "email"
   end
 
