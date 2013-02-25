@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: curricula_vitae
+#
+#  id         :integer          not null, primary key
+#  dossier_id :integer
+#  lang       :string(255)
+#  rawdata    :string(255)
+#  location   :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  dossier_id: 1
+  lang: EN
+  rawdata: dgh53sdfg53sf7gj3sfg6j53sfg7j563sfg7j35sfgafga8675dfh4a6h4dgh45
+  location: /path/to/file/CV-EN.pdf
+
+two:
+  dossier_id: 1
+  lang: FR
+  rawdata: sfgafga8675dfh4a6h4dgh45dgh53sdfg53sf7gj3sfg6j53sfg7j563sfg7j35
+  location: /path/to/file/CV-FR.pdf
