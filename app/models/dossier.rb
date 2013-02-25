@@ -13,4 +13,5 @@ class Dossier < ActiveRecord::Base
   attr_accessible :job_application_id, :notes
 
   belongs_to :job_application
+  has_one :curriculum_vitae
 end
