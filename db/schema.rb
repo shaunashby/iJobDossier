@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225215235) do
+ActiveRecord::Schema.define(:version => 20130225222919) do
 
   create_table "application_targets", :force => true do |t|
     t.integer  "job_application_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20130225215235) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.string   "email"
+  end
+
+  create_table "cover_letters", :force => true do |t|
+    t.integer  "dossier_id"
+    t.string   "lang"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "curricula_vitae", :force => true do |t|
@@ -56,6 +63,26 @@ ActiveRecord::Schema.define(:version => 20130225215235) do
     t.datetime "updated_at",              :null => false
     t.date     "submission"
     t.integer  "status"
+  end
+
+  create_table "references", :force => true do |t|
+    t.integer  "dossier_id"
+    t.string   "from"
+    t.string   "organisation"
+    t.string   "rawdata"
+    t.string   "location"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "work_certificates", :force => true do |t|
+    t.integer  "dossier_id"
+    t.string   "position"
+    t.string   "organisation"
+    t.string   "rawdata"
+    t.string   "location"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
 end
