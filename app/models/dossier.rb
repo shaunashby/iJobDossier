@@ -14,4 +14,7 @@ class Dossier < ActiveRecord::Base
 
   belongs_to :job_application
   has_one :curriculum_vitae
+  has_one :cover_letter
+  has_many :references
+  has_many :work_certificates
 end
