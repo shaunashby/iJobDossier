@@ -1,1 +1,1 @@
-rvm use @rails_sandbox
+rvm use ruby-1.9.3-p392@rails_sandbox
