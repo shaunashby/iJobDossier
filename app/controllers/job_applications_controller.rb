@@ -56,7 +56,8 @@ class JobApplicationsController < ApplicationController
 
   # POST job_application_pools/:pool_id/job_applications(.:format)
   def create
-    @job_application = JobApplicationPool.find(params[:pool_id]).job_applications.build(params[:job_application])
+    @job_application = JobApplicationPool.find(params[:pool_id]).job_applications.create(params[:job_application])
+    @dossier = @job_application.create_dossier({ notes: 'empty dossier' })
 
     respond_to do |format|
       if @job_application.save
