@@ -42,6 +42,8 @@ class JobApplicationsController < ApplicationController
   # GET /job_application_pools/:pool_id/job_applications/new(.:format) new_pool_application_path
   def new
     @job_application = JobApplication.new(params[:id])
+    @application_target = ApplicationTarget.new
+    @dossier = Dossier.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -57,7 +59,8 @@ class JobApplicationsController < ApplicationController
   # POST job_application_pools/:pool_id/job_applications(.:format)
   def create
     @job_application = JobApplicationPool.find(params[:pool_id]).job_applications.create(params[:job_application])
-    @dossier = @job_application.create_dossier({ notes: 'empty dossier' })
+    @application_target = @job_application.create_application_target(params[:application_target])
+    @dossier = @job_application.create_dossier(params[:dossier])
 
     respond_to do |format|
       if @job_application.save
