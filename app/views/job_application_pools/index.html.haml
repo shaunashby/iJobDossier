@@ -1,26 +1,31 @@
-%h2 Currently Stored Job Application Pools
+%div.five.columns
 
-These are the current pools:
+ %h4 Job Pools
+ Welcome! A job pool is a collection of job applications, grouped for
+ easy reference. The current pools on this system are shown in the
+ table on the right.
+ %p
+ = link_to 'Create a new Pool', new_pool_path, :class => 'button'
 
-%br
-
-%div.pools-contents
+%div.eleven.columns
  %table
-  %th Pool ID
-  %th User name
-  %th Description
-  %th Pool Size
-  %th Created
-  - @job_application_pools.each do |pool|
+  %thead
    %tr
-    %td= pool.id
-    %td= pool.user
-    %td= pool.description
-    %td= pool.job_applications.count
-    %td= pool.created_at
-
-%div.pools-create
- = link_to 'Create new pool', new_pool_path
-
-:javascript
-  var App = #{@job_application_pools.to_json};
+    %th User name
+    %th Description
+    %th N/app
+    %th Last Update
+    %th
+    %th
+    %th
+  %tbody
+   - @job_application_pools.each do |pool|
+    %tr
+     %td= pool.user
+     %td= pool.description
+     %td= pool.job_applications.count
+     %td= pool.updated_at.getlocal
+     %td= link_to('Show Applications', pool_applications_path(pool))
+     %td= link_to('Edit', edit_pool_path(pool))
+     %td= link_to('Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' })
+%br.clear
