@@ -41,7 +41,7 @@ class JobApplicationsController < ApplicationController
 
   # GET /job_application_pools/:pool_id/job_applications/new(.:format) new_pool_application_path
   def new
-    @job_application = JobApplication.new(params[:id])
+    @job_application = JobApplication.new
     @application_target = ApplicationTarget.new
     @dossier = Dossier.new
 
