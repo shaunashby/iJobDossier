@@ -18,9 +18,9 @@ ActiveRecord::Schema.define(:version => 20130225222919) do
     t.string   "company"
     t.string   "contact"
     t.string   "address"
-    t.text     "notes",              :limit => 255
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.text     "notes"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "email"
   end
 
