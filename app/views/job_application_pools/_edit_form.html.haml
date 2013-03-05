@@ -1,17 +1,17 @@
 = form_for(@job_application_pool, :url => pool_path) do |f|
- - if @job_application_pool.errors.any?
-  %div#error_explanation
-   %h2 #{pluralize(@job_application_pool.errors.count, "error")} prohibited this job_application_pool from being saved:
-   %ul
-    - @job_application_pool.errors.full_messages.each do |msg|
-     %li #{msg}
- .field
- = f.label :user
- %br
- = f.text_field :user
- .field
- = f.label :description
- %br
- = f.text_field :description
- .action
- = f.submit
+ %fieldset
+  %legend Job application pool
+  - if @job_application_pool.errors.any?
+   %div#error_explanation
+    %h2 #{pluralize(@job_application_pool.errors.count, "error")} prohibited this job application pool from being saved:
+    %ul
+     - @job_application_pool.errors.full_messages.each do |msg|
+      %li #{msg}
+  .field
+   = f.label :user
+   = f.text_field :user
+  .field
+   = f.label :description
+   = f.text_area :description, :rows => 2
+  .action
+   = f.submit
