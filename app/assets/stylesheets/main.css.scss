@@ -65,20 +65,59 @@ div {
   }
 }
 
+input {
+      margin-bottom: 0px;
+}
+
+fieldset {
+	 border: 1px solid #ccc;
+	 padding: 5px;
+	 width: 800px;
+}
+
+select {
+       display: inline;
+       width: 100px;
+}
+
+legend {
+    font-size: 13px;
+}
+
+label {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+/* Button Styles */
+
+a.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+	background: rgb(248,239,6);
+	text-transform: lowercase;
+}
+
+/* Error message and information message styles */
 #notice {
   color: green;
   font-weight: bold;
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
+  padding: 2px solid red;
   display: table;
+  input, select, textarea {
+    background-color: pink;
+    border: 1px solid red;
+  }
 }
 
 #error_explanation {
   width: 450px;
-  border: 2px solid red;
+  border: 1px solid red;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
@@ -93,9 +132,15 @@ div {
     background-color: #c00;
     color: #fff;
   }
-  ul li {
+  ul {
+    padding-top: 5px;
+    padding-left: 40px;
+    font-size: 12px;
+  }
+  li {
     font-size: 12px;
     list-style: square;
+    margin-bottom: 6px;
   }
 }
 
