@@ -1,5 +1,5 @@
 = form_for(@job_application, :url => pool_applications_path) do |f|
- %fieldset
+ %fieldset.job_application_detail
   %legend Job Application Details
   - if @job_application.errors.any?
    %div#error_explanation
@@ -23,12 +23,12 @@
    = f.label 'Status:'
    = f.text_field :status
 
- %fieldset
+ %fieldset.application_target_detail
   %legend Application Target
   = render "application_target"
 
- %fieldset
-  %legend Dossier Content
+ %fieldset.dossier_detail
+  %legend Dossier
   = render "dossier"
 
   .action
