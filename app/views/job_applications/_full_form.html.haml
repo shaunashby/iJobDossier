@@ -7,27 +7,28 @@
     %ul
      - @job_application.errors.full_messages.each do |msg|
       %li #{msg}
-  = f.label :jobtitle
-  = f.text_field :jobtitle
-
-  = f.label :jobref
-  = f.text_field :jobref
-
-  = f.label :deadline
-  = f.date_select :deadline
-
-  = f.label :submission
-  = f.date_select :submission
-
-  = f.label :status
-  = f.text_field :status
+  .field
+   = f.label :jobtitle
+   = f.text_field :jobtitle
+  .field
+   = f.label :jobref
+   = f.text_field :jobref
+  .field
+   = f.label :deadline
+   = f.date_select :deadline
+  .field
+   = f.label :submission
+   = f.date_select :submission
+  .field
+   = f.label :status
+   = f.text_field :status
 
  %fieldset
   %legend Dossier Notes
   = fields_for :dossier do |dossier|
-
-   = dossier.label 'Dossier Notes'
-   = dossier.text_area :notes, :rows => 4, :colummns => 6
+   .field
+    = dossier.label :notes
+    = dossier.text_area :notes, :rows => 4, :cols => 25
 
  %fieldset
   %legend Application Target
@@ -38,20 +39,21 @@
      - @application_target.errors.full_messages.each do |msg|
       %li #{msg}
   = fields_for :application_target do |target|
-   = target.label 'Target Company'
-   = target.text_field :company
-
-   = target.label :contact
-   = target.text_field :contact
-
-   = target.label :email
-   = target.email_field :email
-
-   = target.label :address
-   = target.text_area :address, :rows => 3
-
-   = target.label 'Notes about this company'
-   = target.text_area :notes, :rows => 4
+   .field
+    = target.label 'Target Company'
+    = target.text_field :company
+   .field
+    = target.label :contact
+    = target.text_field :contact
+   .field
+    = target.label :email
+    = target.email_field :email
+   .field
+    = target.label :address
+    = target.text_area :address, :rows => 3
+   .field
+    = target.label :notes
+    = target.text_area :notes, :rows => 4
 
  .action
- = f.submit
+  = f.submit
