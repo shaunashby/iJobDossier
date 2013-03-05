@@ -8,52 +8,28 @@
      - @job_application.errors.full_messages.each do |msg|
       %li #{msg}
   .field
-   = f.label :jobtitle
+   = f.label 'Title'
    = f.text_field :jobtitle
   .field
-   = f.label :jobref
+   = f.label 'Reference'
    = f.text_field :jobref
   .field
    = f.label :deadline
-   = f.date_select :deadline
+   = f.date_select :deadline, :order => [:day, :month, :year], :use_month_numbers => true
   .field
    = f.label :submission
-   = f.date_select :submission
+   = f.date_select :submission, :order => [:day, :month, :year], :use_month_numbers => true, :include_blank => true
   .field
    = f.label :status
    = f.text_field :status
 
  %fieldset
-  %legend Dossier Content
-  = fields_for :dossier do |dossier|
-   .field
-    = dossier.label :notes
-    = dossier.text_area :notes, :rows => 4, :cols => 25
+  %legend Application Target
+  = render "application_target"
 
  %fieldset
-  %legend Application Target
-  - if @application_target.errors.any?
-   %div#error_explanation
-    %h2 #{pluralize(@application_target.errors.count, "error")} prohibited this application target from being saved:
-    %ul
-     - @application_target.errors.full_messages.each do |msg|
-      %li #{msg}
-  = fields_for :application_target do |target|
-   .field
-    = target.label 'Target Company'
-    = target.text_field :company
-   .field
-    = target.label :contact
-    = target.text_field :contact
-   .field
-    = target.label :email
-    = target.email_field :email
-   .field
-    = target.label :address
-    = target.text_area :address, :rows => 3
-   .field
-    = target.label :notes
-    = target.text_area :notes, :rows => 4
+  %legend Dossier Content
+  = render "dossier"
 
   .action
    = f.submit
