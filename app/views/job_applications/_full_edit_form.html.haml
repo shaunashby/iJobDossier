@@ -8,19 +8,19 @@
      - @job_application.errors.full_messages.each do |msg|
       %li #{msg}
   .field
-   = f.label :jobtitle
+   = f.label 'Title:'
    = f.text_field :jobtitle
   .field
-   = f.label :jobref
+   = f.label 'Reference:'
    = f.text_field :jobref
   .field
-   = f.label :deadline
-   = f.date_select :deadline
+   = f.label 'Deadline:'
+   = f.date_select :deadline, :order => [:day, :month, :year], :use_month_numbers => true
   .field
-   = f.label :submission
-   = f.date_select :submission
+   = f.label 'Submitted:'
+   = f.date_select :submission, :order => [:day, :month, :year], :use_month_numbers => true, :include_blank => true
   .field
-   = f.label :status
+   = f.label 'Status:'
    = f.text_field :status
 
  %fieldset
