@@ -13,7 +13,8 @@
     %h3 A job application management application.
 
   %div.primary.container
-   %p#notice= notice
+   - if notice
+    %p#notice= notice
    %div.eighteen.columns
     = yield
    %div.eighteen.columns
