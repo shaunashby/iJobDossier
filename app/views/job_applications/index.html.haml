@@ -33,3 +33,4 @@
      %td= link_to('Edit',    { :controller => 'job_applications', :action => 'edit', :id => app, :pool_id => app.job_application_pool_id })
      %td= link_to('Destroy', { :controller => 'job_applications', :action => 'destroy', :id => app, :pool_id => app.job_application_pool_id }, { method: :delete, data: { confirm: 'Are you sure?' } })
 %br.clear
+= link_to('Back to Pool List', root_path)
