@@ -102,8 +102,14 @@ input[type="button"] {
 
 /* Error message and information message styles */
 #notice {
-  color: green;
-  font-weight: bold;
+    border: 1px solid darkgreen;
+    color: green;
+    font-weight: bold;
+    background-color: rgb(195, 243, 186);
+    text-align: center;
+    width: 400px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .field_with_errors {
