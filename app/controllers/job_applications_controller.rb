@@ -32,6 +32,8 @@ class JobApplicationsController < ApplicationController
   # GET /job_application_pools/:pool_id/job_applications/:id(.:format) pool_application
   def show
     @job_application = JobApplication.find(params[:id])
+    @application_target = @job_application.application_target
+    @dossier = @job_application.dossier
 
     respond_to do |format|
       format.html # show.html.erb
@@ -54,6 +56,8 @@ class JobApplicationsController < ApplicationController
   # GET /job_application_pools/:pool_id/job_applications/:id/edit(.:format) edit_pool_application
   def edit
     @job_application = JobApplication.find(params[:id])
+    @application_target = @job_application.application_target
+    @dossier = @job_application.dossier
   end
 
   # POST job_application_pools/:pool_id/job_applications(.:format)
@@ -77,9 +81,15 @@ class JobApplicationsController < ApplicationController
   # PUT /job_application_pools/:pool_id/job_applications/:id(.:format)
   def update
     @job_application = JobApplication.find(params[:id])
+    @application_target = @job_application.application_target
+    @dossier = @job_application.dossier
 
     respond_to do |format|
       if @job_application.update_attributes(params[:job_application])
+
+        @application_target.update_attributes(params[:application_target])
+        @dossier.update_attributes(params[:dossier])
+
         flash[:notice]="Job application was successfully updated."
         format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
         format.json { head :no_content }

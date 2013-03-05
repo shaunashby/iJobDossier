@@ -1,0 +1,59 @@
+= form_for(@job_application, :url => pool_application_path) do |f|
+ %fieldset
+  %legend Job Application Details
+  - if @job_application.errors.any?
+   %div#error_explanation
+    %h2 #{pluralize(@job_application.errors.count, "error")} prohibited this job application from being saved:
+    %ul
+     - @job_application.errors.full_messages.each do |msg|
+      %li #{msg}
+  .field
+   = f.label :jobtitle
+   = f.text_field :jobtitle
+  .field
+   = f.label :jobref
+   = f.text_field :jobref
+  .field
+   = f.label :deadline
+   = f.date_select :deadline
+  .field
+   = f.label :submission
+   = f.date_select :submission
+  .field
+   = f.label :status
+   = f.text_field :status
+
+ %fieldset
+  %legend Dossier Content
+  = fields_for :dossier do |dossier|
+   .field
+    = dossier.label :notes
+    = dossier.text_area :notes, :rows => 4, :cols => 25
+
+ %fieldset
+  %legend Application Target
+  - if @application_target.errors.any?
+   %div#error_explanation
+    %h2 #{pluralize(@application_target.errors.count, "error")} prohibited this application target from being saved:
+    %ul
+     - @application_target.errors.full_messages.each do |msg|
+      %li #{msg}
+  = fields_for :application_target do |target|
+   .field
+    = target.label 'Target Company'
+    = target.text_field :company
+   .field
+    = target.label :contact
+    = target.text_field :contact
+   .field
+    = target.label :email
+    = target.email_field :email
+   .field
+    = target.label :address
+    = target.text_area :address, :rows => 3
+   .field
+    = target.label :notes
+    = target.text_area :notes, :rows => 4
+
+  .action
+   = f.submit
