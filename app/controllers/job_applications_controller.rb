@@ -96,7 +96,7 @@ class JobApplicationsController < ApplicationController
     @job_application.destroy
 
     respond_to do |format|
-      format.html { redirect_to pool_applications_path }
+      format.html { redirect_to pool_applications_path, notice: "Job application #{params[:id]} was deleted." }
       format.json { head :no_content }
     end
   end
