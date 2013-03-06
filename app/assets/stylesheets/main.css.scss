@@ -149,38 +149,3 @@ input[type="button"] {
     margin-bottom: 6px;
   }
 }
-
-/* Styles I've used before */
-.msgbox {
-        height: 50px;
-        width: auto;
-        margin-right: 5px;
-        margin-left: 5px;
-        padding-top: 25px;
-}
-
-/* Style for flash notice (error/warning) messages (same everywhere) */
-.msgbox #flash-notice #notice {
-    border: 1px solid #CC0000;
-    color: #CC0000;
-    background-color: #f0f0f0;
-    font-family: monospace;
-    font-size:13px;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-/* Style for flash info messages (same everywhere) */
-.msgbox #flash-message #notice {
-    border: 1px solid grey;
-    color: #669900;
-    background-color: #f0f0f0;
-    font-family: monospace;
-    font-size:13px;
-    font-weight: bold;
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
