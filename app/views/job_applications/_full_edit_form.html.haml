@@ -21,7 +21,7 @@
    = f.date_select :submission, :order => [:day, :month, :year], :use_month_numbers => true, :include_blank => true
   .field
    = f.label 'Status:'
-   = f.text_field :status
+   = f.select :status, [ 0,1,2,3 ], :include_blank => true
 
  %fieldset.application_target_detail
   %legend Application Target
