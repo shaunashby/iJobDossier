@@ -60,24 +60,43 @@ pre {
 }
 
 div {
-  &.field, &.actions {
-    margin-bottom: 10px;
+  &.field {
+
+  }
+
+  &.actions {
+
   }
 }
 
-input {
+input[type="text"], input[type="email"] {
       margin-bottom: 0px;
 }
 
 fieldset {
 	 border: 1px solid #ccc;
 	 padding: 5px;
-	 width: 800px;
-}
 
-select {
-       display: inline;
-       width: 100px;
+	 select {
+	     width: 65px;
+	     display: inline;
+	     margin-bottom: 0px;
+	 }
+
+	 &.job_application_detail div.field {
+	     width: 50%;
+	     float: left;
+	 }
+
+	 &.application_target_detail div.field {
+	     width: 50%;
+	     float: left;
+	 }
+
+	 &.dossier_detail div.field {
+
+	 }
+
 }
 
 legend {
@@ -87,6 +106,14 @@ legend {
 label {
     font-weight: normal;
     font-size: 12px;
+    display: block;
+}
+
+iframe {
+    background-color: red;
+    height: 200px;
+    width: 940px;
+    display: none;
 }
 
 /* Button Styles */
