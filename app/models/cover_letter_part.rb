@@ -11,5 +11,5 @@
 #
 
 class CoverLetterPart < ActiveRecord::Base
-  attr_accessible :body, :cover_letter_id, :position
+  attr_accessible :cover_letter_id, :position, :body
 end
