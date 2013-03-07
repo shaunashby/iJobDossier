@@ -69,34 +69,60 @@ div {
   }
 }
 
+input[type="text"], input[type="password"], input[type="email"], textarea, select {
+    padding: 2px 2px;
+}
+
 input[type="text"], input[type="email"] {
       margin-bottom: 0px;
+      padding: 2px 2px;
 }
 
 fieldset {
-	 border: 1px solid #ccc;
-	 padding: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 12px;
+    background-color: rgb(250,250,250);
 
-	 select {
-	     width: 65px;
-	     display: inline;
-	     margin-bottom: 0px;
-	 }
+    select {
+	width: 65px;
+	display: inline;
+	margin-bottom: 0px;
+	color: #000;
+	font-size: 12px;
 
-	 &.job_application_detail div.field {
-	     width: 50%;
-	     float: left;
-	 }
+	&#job_application_status {
+	    width: 135px;
+	    margin-bottom: 20px;
 
-	 &.application_target_detail div.field {
-	     width: 50%;
-	     float: left;
-	 }
+	    &.incomplete {
+		background-color: rgb(241, 52, 52);
+	    }
 
-	 &.dossier_detail div.field {
+	    &.complete {
+		background-color: rgb(82, 209, 71);
+	    }
+	}
+    }
 
-	 }
+    &.job_application_detail div.field {
+	width: 50%;
+	float: left;
+	color: #000;
+    }
 
+    &.application_target_detail div.field {
+	width: 50%;
+	float: left;
+	color: #000;
+    }
+
+    &.dossier_detail div.field {
+	color: #000;
+	textarea {
+	    width: 622px;
+	}
+    }
 }
 
 legend {
@@ -118,13 +144,9 @@ iframe {
 
 /* Button Styles */
 
-a.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-	background: rgb(248,239,6);
-	text-transform: lowercase;
+a.button,button, input[type="submit"], input[type="reset"], input[type="button"] {
+    background: rgb(248,239,6);
+    text-transform: lowercase;
 }
 
 /* Error message and information message styles */
