@@ -18,4 +18,9 @@ class CoverLetterPartTest < ActiveSupport::TestCase
     assert true
   end
 
+  test "test new with empty attributes" do
+    letter_part = CoverLetterPart.new
+    assert letter_part.save, "CoverLetterPart saved with empty attributes."
+  end
+
 end
