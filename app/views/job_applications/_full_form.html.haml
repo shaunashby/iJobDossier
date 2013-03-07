@@ -21,7 +21,7 @@
    = f.date_select :submission, :order => [:day, :month, :year], :use_month_numbers => true, :include_blank => true
   .field
    = f.label 'Status:'
-   = f.select :status, [ [ 'incomplete', 0], [ 'dossier complete', 1 ] ], :include_blank => true
+   = f.select(:status, [ [ 'dossier incomplete', 0], [ 'dossier complete', 1 ] ], { :selected => 0 }, { :class => 'incomplete' })
 
  %fieldset.application_target_detail
   %legend Application Target
