@@ -62,16 +62,35 @@ class JobApplicationsController < ApplicationController
 
   # POST job_application_pools/:pool_id/job_applications(.:format)
   def create
-    @job_application = JobApplicationPool.find(params[:pool_id]).job_applications.create(params[:job_application])
-    @application_target = @job_application.create_application_target(params[:application_target])
-    @dossier = @job_application.create_dossier(params[:dossier])
-
     respond_to do |format|
-      if @job_application.save
-        flash[:notice]="Job application was successfully created."
-        format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
-        format.json { render json: @job_application, status: :created, location: @job_application }
-      else
+      begin
+        @pool = JobApplicationPool.find(params[:pool_id])
+        @job_application = JobApplication.new(params[:job_application])
+        @application_target = ApplicationTarget.new(params[:application_target])
+        @dossier = Dossier.new(params[:dossier])
+
+        if @job_application.valid?
+          if @application_target.valid?
+            @job_application.save!
+            @job_application.application_target=@application_target
+            @job_application.dossier=@dossier
+            @pool.job_applications << @job_application
+
+            flash[:notice] = "Job application was successfully created."
+            format.html { redirect_to :action => "show", :id => @job_application.id,
+                                      :pool_id => @job_application.job_application_pool_id }
+            format.json { render json: @job_application, status: :created, location: @job_application }
+          else
+            format.html { render action: "new" }
+            format.json { render json: @application_target.errors, status: :unprocessable_entity }
+          end
+        else
+          format.html { render action: "new" }
+          format.json { render json: @job_application.errors, status: :unprocessable_entity }
+        end
+      rescue ActiveRecord::ActiveRecordError => error
+        logger.error("Attempt to save new JobApplication record failed -> (#{e})")
+        flash[:error] = "Attempt to save new JobApplication record failed"
         format.html { render action: "new" }
         format.json { render json: @job_application.errors, status: :unprocessable_entity }
       end
@@ -80,21 +99,29 @@ class JobApplicationsController < ApplicationController
 
   # PUT /job_application_pools/:pool_id/job_applications/:id(.:format)
   def update
-    @job_application = JobApplication.find(params[:id])
-    @application_target = @job_application.application_target
-    @dossier = @job_application.dossier
-
     respond_to do |format|
-      if @job_application.update_attributes(params[:job_application])
+      begin
+        @job_application = JobApplication.find(params[:id])
+        @application_target = @job_application.application_target
+        @dossier = @job_application.dossier.update_attributes(params[:dossier])
 
-        @application_target.update_attributes(params[:application_target])
-        @dossier.update_attributes(params[:dossier])
-
-        flash[:notice]="Job application was successfully updated."
-        format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
+        if @job_application.update_attributes(params[:job_application])
+          if @application_target.update_attributes(params[:application_target])
+            flash[:notice] = "Job application was successfully updated."
+            format.html { redirect_to :action => "show", :id => @job_application.id, :pool_id => @job_application.job_application_pool_id }
+            format.json { head :no_content }
+          else
+            format.html { render action: "edit" }
+            format.json { render json: @application_target.errors, status: :unprocessable_entity }
+          end
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @job_application.errors, status: :unprocessable_entity }
+        end
+      rescue ActiveRecord::RecordInvalid => error
+        logger.error("Attempt to update JobApplication record #{params[:id]} failed -> (#{e})")
+        flash[:error] = "Attempt to save new JobApplication record #{params[:id]} failed"
+        format.html { render action: "new" }
         format.json { render json: @job_application.errors, status: :unprocessable_entity }
       end
     end
