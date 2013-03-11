@@ -46,10 +46,13 @@ class JobApplicationPoolsController < ApplicationController
     @job_application_pool = JobApplicationPool.new(params[:job_application_pool])
 
     respond_to do |format|
-      if @job_application_pool.save
+      begin
+        @job_application_pool.save!
         format.html { redirect_to pool_path(@job_application_pool), notice: "Job application pool was successfully created." }
         format.json { render json: @job_application_pool, status: :created, location: @job_application_pool }
-      else
+      rescue ActiveRecord::ActiveRecordError => e
+        logger.error("Attempt to save JobApplicationPool record ID #{params[:id]} failed -> (#{e})")
+        flash[:error] = "Attempt to save JobApplicationPool record ID #{params[:id]} failed"
         format.html { render action: "new" }
         format.json { render json: @job_application_pool.errors, status: :unprocessable_entity }
       end
@@ -61,10 +64,13 @@ class JobApplicationPoolsController < ApplicationController
     @job_application_pool = JobApplicationPool.find(params[:id])
 
     respond_to do |format|
-      if @job_application_pool.update_attributes(params[:job_application_pool])
+      begin
+        @job_application_pool.update_attributes(params[:job_application_pool])
         format.html { redirect_to pool_path(@job_application_pool), notice: "Job application pool was successfully updated." }
         format.json { head :no_content }
-      else
+      rescue ActiveRecord::ActiveRecordError => e
+        logger.error("Attempt to update JobApplicationPool record ID #{params[:id]} failed -> (#{e})")
+        flash[:error] = "Attempt to update JobApplicationPool record ID #{params[:id]} failed"
         format.html { render action: "edit" }
         format.json { render json: @job_application_pool.errors, status: :unprocessable_entity }
       end
