@@ -161,6 +161,17 @@ a.button,button, input[type="submit"], input[type="reset"], input[type="button"]
     padding-bottom: 5px;
 }
 
+#error {
+    border: 1px solid red;
+    color: red;
+    font-weight: bold;
+    background-color: rgb(248, 217, 217);
+    text-align: center;
+    width: 400px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
 .field_with_errors {
   padding: 2px solid red;
   display: table;

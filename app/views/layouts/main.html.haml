@@ -13,8 +13,10 @@
     %h3 A job application management application.
 
   %div.primary.container
-   - if notice
-    %p#notice= notice
+   - if flash[:notice]
+    %p#notice= flash[:notice]
+   - if flash[:error]
+    %p#error= flash[:error]
    %div.eighteen.columns
     = yield
    %div.eighteen.columns
