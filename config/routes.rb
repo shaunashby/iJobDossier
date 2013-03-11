@@ -11,6 +11,13 @@ IJobDossier::Application.routes.draw do
     end
   end
 
+  resources :dossiers do
+    resource :curriculum_vitae, :as => 'cv'
+    resource :cover_letter, :as => 'cletter'
+    resources :references, :as => 'ref'
+    resources :work_certificates, :as => 'wcert'
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
