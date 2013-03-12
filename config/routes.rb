@@ -13,7 +13,9 @@ IJobDossier::Application.routes.draw do
 
   resources :dossiers do
     resource :curriculum_vitae, :as => 'cv'
-    resource :cover_letter, :as => 'cletter'
+    resource :cover_letter, :as => 'cletter' do
+      resources :cover_letter_parts, :as => 'part', :only => [ :show, :create, :update, :destroy ]
+    end
     resources :references, :as => 'ref'
     resources :work_certificates, :as => 'wcert'
   end
