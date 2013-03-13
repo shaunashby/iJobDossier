@@ -1,4 +1,4 @@
-%td= link_to('Show', { :controller => 'job_applications', :action => 'show', :id => job_application, :pool_id => job_application.job_application_pool_id }, title: 'Show the current job application')
-%td= link_to('Edit', { :controller => 'job_applications', :action => 'edit', :id => job_application, :pool_id => job_application.job_application_pool_id }, title: 'Edit the current job application')
-%td= link_to('X',    { :controller => 'job_applications', :action => 'destroy', :id => job_application, :pool_id => job_application.job_application_pool_id }, 
-                     { title: 'Delete this job application', method: :delete, data: { confirm: 'Are you sure?' } })
+%td= link_to("Show", { :controller => "job_applications", :action => "show", :id => job_application, :pool_id => job_application.job_application_pool_id }, title: "Show the current job application")
+%td= link_to("Edit", { :controller => "job_applications", :action => "edit", :id => job_application, :pool_id => job_application.job_application_pool_id }, title: "Edit the current job application")
+%td= link_to("X",    { :controller => "job_applications", :action => "destroy", :id => job_application, :pool_id => job_application.job_application_pool_id }, 
+                     { title: "Delete this job application", method: :delete, data: { confirm: "Are you sure?" } })

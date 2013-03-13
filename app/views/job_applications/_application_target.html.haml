@@ -6,17 +6,17 @@
     %li #{msg}
 = fields_for :application_target do |target|
  .field
-  = target.label 'Company:'
+  = target.label "Company:"
   = target.text_field :company
  .field
-  = target.label 'Contact:'
+  = target.label "Contact:"
   = target.text_field :contact
  .field
-  = target.label 'Address:'
+  = target.label "Address:"
   = target.text_area :address, :rows => 3
  .field
-  = target.label 'Email:'
+  = target.label "Email:"
   = target.email_field :email
  .field
-  = target.label 'Notes:'
+  = target.label "Notes:"
   = target.text_area :notes, :rows => 4

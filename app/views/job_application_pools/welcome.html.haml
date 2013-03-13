@@ -11,7 +11,7 @@
   %p
 %div.eleven.columns
  - if @job_application_pools.empty?
-  = render :partial => 'job_application_pools/form'
+  = render :partial => "job_application_pools/form"
  - else
   %table
    %thead
@@ -26,5 +26,5 @@
    %tbody
     = render :partial => @job_application_pools
   %p
-  = link_to 'Create a new Pool', new_pool_path, remote: true, class: 'button', title: 'Create a new job application pool'
+  = link_to "Create a new Pool", new_pool_path, remote: true, class: "button", title: "Create a new job application pool"
 %br.clear

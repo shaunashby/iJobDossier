@@ -8,20 +8,20 @@
      - @job_application.errors.full_messages.each do |msg|
       %li #{msg}
   .field
-   = f.label 'Title:'
+   = f.label "Title:"
    = f.text_field :jobtitle
   .field
-   = f.label 'Reference:'
+   = f.label "Reference:"
    = f.text_field :jobref
   .field
-   = f.label 'Deadline:'
+   = f.label "Deadline:"
    = f.date_select :deadline, :order => [:day, :month, :year], :use_month_numbers => true
   .field
-   = f.label 'Submitted:'
+   = f.label "Submitted:"
    = f.date_select :submission, :order => [:day, :month, :year], :use_month_numbers => true, :include_blank => true
   .field
-   = f.label 'Status:'
-   = f.select(:status, [ [ 'dossier incomplete', 0], [ 'dossier complete', 1 ] ], { :selected => 0 }, { :class => 'incomplete' })
+   = f.label "Status:"
+   = f.select(:status, [ [ "dossier incomplete", 0], [ "dossier complete", 1 ] ], { :selected => 0 }, { :class => "incomplete" })
 
  %fieldset.application_target_detail
   %legend Application Target
@@ -32,4 +32,4 @@
   = render "dossier"
 
   .action
-   = f.submit
+   = f.submit(value="update")

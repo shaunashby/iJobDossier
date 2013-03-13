@@ -5,7 +5,7 @@
  easy reference. The current pools on this system are shown in the
  table on the right.
  %p
- = link_to 'Create a new Pool', new_pool_path, :class => 'button'
+ = link_to "Create a new Pool", new_pool_path, :class => "button"
 
 %div.eleven.columns
  %table
@@ -25,7 +25,7 @@
      %td= pool.description
      %td= pool.job_applications.count
      %td= pool.updated_at.getlocal
-     %td= link_to('Show Applications', pool_applications_path(pool))
-     %td= link_to('Edit', edit_pool_path(pool))
-     %td= link_to('Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' })
+     %td= link_to("Show Applications", pool_applications_path(pool))
+     %td= link_to("Edit", edit_pool_path(pool))
+     %td= link_to("Destroy", pool_path(pool), method: :delete, data: { confirm: "Are you sure?" })
 %br.clear

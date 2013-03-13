@@ -11,11 +11,11 @@
 
   To add a new application to this pool, use the button below.
   %p
-   = link_to 'Add Job Application', new_pool_application_path, :class => 'button', :title => 'Add a new job application to the current pool'
+   = link_to "Add Job Application", new_pool_application_path, :class => "button", :title => "Add a new job application to the current pool"
 
 %div.eleven.columns
  - if @job_applications.empty?
-  = render :partial => 'job_applications/full_form'
+  = render :partial => "job_applications/full_form"
  - else
   %table
    %thead
@@ -33,4 +33,4 @@
     = render :partial => @job_applications
 
 %br.clear
-= link_to('Back to Pool List', root_path)
+= link_to("Back to Pool List", root_path)
