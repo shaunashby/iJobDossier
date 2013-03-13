@@ -1,31 +1,30 @@
 %div.five.columns
  
- %h4 Job Pools
- Welcome! A job pool is a collection of job applications, grouped for
- easy reference. The current pools on this system are shown in the
- table on the right.
- %p
- = link_to 'Create a new Pool', new_pool_path, :class => 'button'
-
+ %h4 Job Application Pools
+ Welcome! A job application pool is a collection of job applications, grouped for
+ easy reference. 
+ - if @job_application_pools.empty?
+  Create a new pool using the form on the right.
+ - else
+  The current pools on this system are shown in the table on the
+  right.
+  %p
 %div.eleven.columns
- %table
-  %thead
-   %tr
-    %th User name
-    %th Description
-    %th N/app
-    %th Last Update
-    %th
-    %th
-    %th
-  %tbody
-   - @job_application_pools.each do |pool|
+ - if @job_application_pools.empty?
+  = render :partial => 'job_application_pools/form'
+ - else
+  %table
+   %thead
     %tr
-     %td= pool.user
-     %td= pool.description
-     %td= pool.job_applications.count
-     %td= pool.updated_at.getlocal
-     %td= link_to('Show Applications', pool_applications_path(pool))
-     %td= link_to('Edit', edit_pool_path(pool))
-     %td= link_to('Destroy', pool_path(pool), method: :delete, data: { confirm: 'Are you sure?' })
+     %th User name
+     %th Description
+     %th N/app
+     %th Last Update
+     %th
+     %th
+     %th
+   %tbody
+    = render :partial => @job_application_pools
+  = link_to 'Create a new Pool', new_pool_path, remote: true, class: 'button', title: 'Create a new job application pool'
 %br.clear
+

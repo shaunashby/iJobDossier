@@ -1,0 +1,6 @@
+%tr.pool-entry
+ %td= job_application_pool.user
+ %td= job_application_pool.description
+ %td= job_application_pool.job_applications.count
+ %td= job_application_pool.updated_at.getlocal
+ = render :partial => 'job_application_pool_links', :locals => { :job_application_pool => job_application_pool }

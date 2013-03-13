@@ -4,6 +4,7 @@ class JobApplicationPoolsController < ApplicationController
   # GET / root
   def welcome
     @job_application_pools = JobApplicationPool.all
+    @job_application_pool = JobApplicationPool.new
   end
 
   # GET /job_application_pools(.:format) pools
@@ -33,6 +34,7 @@ class JobApplicationPoolsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @job_application_pool }
+      format.js
     end
   end
 
