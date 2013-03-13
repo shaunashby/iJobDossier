@@ -1,36 +1,36 @@
 %div.five.columns
 
  %h4 Job Applications
- The job applications belonging to the current pool are shown in the
- table on the right. To add a new application to this pool, use the
- button below.
- %p
- = link_to 'Create Job Application', new_pool_application_path, :class => 'button'
+ - if @job_applications.empty?
+  To add a new job application to the current pool, use the form on
+  the right.
+
+ - else
+  The job applications belonging to the current pool are shown in the
+  table on the right.
+
+  To add a new application to this pool, use the button below.
+  %p
+   = link_to 'Add Job Application', new_pool_application_path, :class => 'button', :title => 'Add a new job application to the current pool'
 
 %div.eleven.columns
- %table
-  %thead
-   %tr
-    %th Job Title
-    %th Job Reference
-    %th Deadline
-    %th Last Update
-    %th Submission Date
-    %th Status
-    %th
-    %th
-    %th
-  %tbody
-   - @job_applications.each do |app|
+ - if @job_applications.empty?
+  = render :partial => 'job_applications/full_form'
+ - else
+  %table
+   %thead
     %tr
-     %td= app.jobtitle
-     %td= app.jobref
-     %td= app.deadline
-     %td= app.updated_at.getlocal
-     %td= app.submission
-     %td= app.status
-     %td= link_to('Show',    { :controller => 'job_applications', :action => 'show', :id => app, :pool_id => app.job_application_pool_id })
-     %td= link_to('Edit',    { :controller => 'job_applications', :action => 'edit', :id => app, :pool_id => app.job_application_pool_id })
-     %td= link_to('Destroy', { :controller => 'job_applications', :action => 'destroy', :id => app, :pool_id => app.job_application_pool_id }, { method: :delete, data: { confirm: 'Are you sure?' } })
+     %th Job Title
+     %th Job Reference
+     %th Deadline
+     %th Last Update
+     %th Submission Date
+     %th Status
+     %th
+     %th
+     %th
+   %tbody
+    = render :partial => @job_applications
+
 %br.clear
 = link_to('Back to Pool List', root_path)

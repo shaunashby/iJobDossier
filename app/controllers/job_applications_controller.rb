@@ -22,6 +22,11 @@ class JobApplicationsController < ApplicationController
   # GET /job_application_pools/:pool_id/job_applications(.:format) pool_applications
   def index
     @job_applications = JobApplicationPool.find(params[:pool_id]).job_applications
+    if @job_applications.empty?
+      @job_application = JobApplication.new
+      @application_target = ApplicationTarget.new
+      @dossier = Dossier.new
+    end
 
     respond_to do |format|
       format.html # index.html.erb
