@@ -25,11 +25,8 @@
       %th Status
       %th
       %th
-      %th
+      %th= link_to "", new_pool_application_path, class: "add-icon", title: "Add a new job application to the current pool"
     %tbody
      = render :partial => @job_applications
-   %p
-   = link_to "Add Job Application", new_pool_application_path, :class => "button", :title => "Add a new job application to the current pool"
-
 %br.clear
 = link_to("Back to Pool List", root_path)
