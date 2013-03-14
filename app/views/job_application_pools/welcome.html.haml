@@ -13,18 +13,19 @@
  - if @job_application_pools.empty?
   = render :partial => "job_application_pools/form"
  - else
-  %table
-   %thead
-    %tr
-     %th User name
-     %th Description
-     %th N/app
-     %th Last Update
-     %th
-     %th
-     %th
-   %tbody
-    = render :partial => @job_application_pools
-  %p
-  = link_to "Create a new Pool", new_pool_path, remote: true, class: "button", title: "Create a new job application pool"
+  %div.job-application-pools
+   %table
+    %thead
+     %tr
+      %th User name
+      %th Description
+      %th N/app
+      %th Last Update
+      %th
+      %th
+      %th
+    %tbody
+     = render :partial => @job_application_pools
+   %p
+   = link_to "Create a new Pool", new_pool_path, remote: true, class: "button", title: "Create a new job application pool" 
 %br.clear

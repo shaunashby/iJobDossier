@@ -1,5 +1,5 @@
 = form_for(@job_application, :url => pool_application_path) do |f|
- %fieldset.job_application_detail
+ %fieldset.job_application
   %legend Edit Job Application
   - if @job_application.errors.any?
    %div#error_explanation
@@ -23,11 +23,11 @@
    = f.label "Status:"
    = f.select(:status, [ [ "dossier incomplete", 0], [ "dossier complete", 1 ] ], { :selected => 0 }, { :class => "incomplete" })
 
- %fieldset.application_target_detail
+ %fieldset.application_target
   %legend Application Target
   = render "application_target"
 
- %fieldset.dossier_detail
+ %fieldset.dossier
   %legend Dossier
   = render "dossier"
 

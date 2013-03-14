@@ -9,28 +9,27 @@
   The job applications belonging to the current pool are shown in the
   table on the right.
 
-  To add a new application to this pool, use the button below.
-  %p
-   = link_to "Add Job Application", new_pool_application_path, :class => "button", :title => "Add a new job application to the current pool"
-
 %div.eleven.columns
  - if @job_applications.empty?
   = render :partial => "job_applications/full_form"
  - else
-  %table
-   %thead
-    %tr
-     %th Job Title
-     %th Job Reference
-     %th Deadline
-     %th Last Update
-     %th Submission Date
-     %th Status
-     %th
-     %th
-     %th
-   %tbody
-    = render :partial => @job_applications
+  %div.job-applications
+   %table
+    %thead
+     %tr
+      %th Job Title
+      %th Job Reference
+      %th Deadline
+      %th Last Update
+      %th Submission Date
+      %th Status
+      %th
+      %th
+      %th
+    %tbody
+     = render :partial => @job_applications
+   %p
+   = link_to "Add Job Application", new_pool_application_path, :class => "button", :title => "Add a new job application to the current pool"
 
 %br.clear
 = link_to("Back to Pool List", root_path)
