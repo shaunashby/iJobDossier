@@ -1,3 +1,6 @@
 // -*- javascript -*-
-$('div#content').replaceWith("<%= escape_javascript(render :partial => 'form') %>");
-$('form.new_job_application_pool').css('width','500px');
+$('.job-application-pools table')
+    .after("<%= escape_javascript(render :partial => 'form') %>")
+    .slideDown(2000, function() {
+	$(".job-application-pools a.add-icon.toggle-button").hide();
+    });
