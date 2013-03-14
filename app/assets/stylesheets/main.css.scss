@@ -36,7 +36,6 @@ table {
 }
 
 .dossier {
-      background-color: rgb(237, 247, 250);
       td {
 	 font-size: 14px;
 	 text-align: left;
@@ -105,19 +104,19 @@ fieldset {
 	}
     }
 
-    &.job_application_detail div.field {
+    &.job_application div.field {
 	width: 50%;
 	float: left;
 	color: #000;
     }
 
-    &.application_target_detail div.field {
+    &.application_target div.field {
 	width: 50%;
 	float: left;
 	color: #000;
     }
 
-    &.dossier_detail div.field {
+    &.dossier div.field {
 	color: #000;
 	textarea {
 	    width: 622px;
@@ -133,13 +132,6 @@ label {
     font-weight: normal;
     font-size: 12px;
     display: block;
-}
-
-iframe {
-    background-color: red;
-    height: 200px;
-    width: 940px;
-    display: none;
 }
 
 /* Button Styles */
