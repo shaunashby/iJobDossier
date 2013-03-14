@@ -1,4 +1,32 @@
 /* -*- CSS -*- */
+$icon-color: "#fa8072";
+
+.genericon {
+        color: $icon-color;
+}
+
+@mixin genericon-rules {
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        font: normal 16px/1 'Genericons';
+        vertical-align: middle;
+}
+
+.delete-icon:before {
+    content: '\f407';
+    @include genericon-rules;
+}
+
+.add-icon:before {
+    content: '\f405';
+    -webkit-transform: rotate(45deg);
+    @include genericon-rules;
+}
+
+.edit-icon:before {
+    content: '\f411';
+    @include genericon-rules;
+}
 
 body {
 	background: #fff;
