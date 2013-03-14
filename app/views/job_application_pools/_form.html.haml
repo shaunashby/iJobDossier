@@ -8,10 +8,10 @@
      - @job_application_pool.errors.full_messages.each do |msg|
       %li #{msg}
   .field
-   = f.label "Username:"
+   = f.label "User:"
    = f.text_field :user
   .field
    = f.label "Pool Description:"
    = f.text_area :description, :rows => 2
   .action
-   = f.submit(value="create")
+   = f.submit(value="Create")
