@@ -53,6 +53,15 @@ table {
     width: 100%;
 }
 
+.job_application_pools {
+    table {
+	th {
+	    font-size: smaller;
+	    font-weight: bold;
+	}
+    }
+}
+
 .jobapplication {
       background-color: rgb(237, 247, 250);
       td {
@@ -73,6 +82,7 @@ table {
 th {
   background-color: #ddd;
   text-align: center;
+  font-weight: bold;
 }
 
 td {
