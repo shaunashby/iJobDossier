@@ -28,6 +28,16 @@ $icon-color: "#fa8072";
     @include genericon-rules;
 }
 
+.show-icon:before {
+    content: '\f403';
+    @include genericon-rules;
+}
+
+.home-icon:before {
+    content: '\f409';
+    @include genericon-rules;
+}
+
 body {
 	background: #fff;
 	font: 14px/24px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;

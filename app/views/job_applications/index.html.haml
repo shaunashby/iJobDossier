@@ -8,6 +8,8 @@
  - else
   The job applications belonging to the current pool are shown in the
   table on the right.
+ %p
+  = link_to("Back to Pool List", root_path, class: "home-icon")
 
 %div.eleven.columns
  - if @job_applications.empty?
