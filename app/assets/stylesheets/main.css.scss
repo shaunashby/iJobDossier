@@ -39,6 +39,11 @@ $zebra-color: rgb(245,253,255);
     @include genericon-rules;
 }
 
+.top-of-page-icon:before {
+    content: '\f420';
+    @include genericon-rules;
+}
+
 body {
 	background: #fff;
 	font: 14px/24px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
