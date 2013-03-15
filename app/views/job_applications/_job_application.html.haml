@@ -1,4 +1,4 @@
-%tr.job-application-entry{:id => ["JobApplication", job_application.id]}
+%tr.job-application-entry(title="This application is #{job_application.status == 0 ? 'incomplete' : 'complete'}"){:id => ["JobApplication", job_application.id]}
  %td= job_application.jobtitle
  %td= job_application.jobref
  %td= job_application.deadline.strftime("%d/%m/%y")
@@ -7,5 +7,4 @@
   %td.submission{title: "Application not yet submitted so no date set"} -
  - else
   %td.submission-closed= job_application.submission.strftime("%d/%m/%y")
- %td= job_application.status
  = render :partial => "job_application_links", :locals => { :job_application => job_application }
