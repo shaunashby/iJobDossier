@@ -72,13 +72,15 @@ table {
     }
 }
 
-.jobapplication {
-      background-color: rgb(237, 247, 250);
-      td {
-	 font-size: 14px;
-	 text-align: left;
-	 font-family: 'courier';
-      }
+tr.job-application-entry {
+    td.submission {
+	text-align: center;
+    }
+
+    td.submission-closed {
+	text-align: center;
+	color: rgb(49,160,49);
+    }
 }
 
 .dossier {
