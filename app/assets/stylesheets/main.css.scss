@@ -57,6 +57,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+span.link-back {
+    float: left;
+    padding-top: 25px;
+    font-size: 12px;
+}
+
 /* From the scaffold generator, to be modified later */
 p, ol, ul {
   font-size: 12px;
