@@ -5,12 +5,6 @@ class JobApplicationPoolsControllerTest < ActionController::TestCase
     @job_application_pool = job_application_pools(:one)
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:job_application_pools)
-  end
-
   test "should get welcome" do
     get :welcome
     assert_response :success
