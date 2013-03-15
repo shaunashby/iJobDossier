@@ -2,6 +2,9 @@
 
  %h4= @job_application.jobtitle
 
+ %span.link-back
+  = link_to("Edit", edit_pool_application_path)
+  = link_to("Back", pool_applications_path)
  %p
 
 %div.eleven.columns
@@ -22,6 +25,3 @@
     %td Dossier notes
     %td= @job_application.dossier.notes
 %br.clear
-%span.link-back
- = link_to("Edit", edit_pool_application_path)
- = link_to("Back", pool_applications_path)
