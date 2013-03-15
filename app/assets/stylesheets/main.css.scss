@@ -1,5 +1,6 @@
 /* -*- CSS -*- */
 $icon-color: "#fa8072";
+$zebra-color: rgb(245,253,255);
 
 .genericon {
         color: $icon-color;
@@ -63,11 +64,16 @@ table {
     width: 100%;
 }
 
-.job_application_pools {
-    table {
-	th {
-	    font-size: smaller;
-	    font-weight: bold;
+div {
+    &.job-application-pools {
+	tr:nth-child(even) {
+	    background-color: $zebra-color;
+	}
+    }
+
+    &.job-applications {
+	tr:nth-child(even) {
+	    background-color: $zebra-color;
 	}
     }
 }
@@ -92,10 +98,6 @@ th {
     padding-left: 5px;
     text-align: left;
     font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: rgb(245,253,255);
 }
 
 td {
