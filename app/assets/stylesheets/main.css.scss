@@ -102,6 +102,13 @@ tr.job-application-entry {
 
 table {
     font-size: 13px;
+    &.job-application, &.application-target, &.dossier {
+	text-align: left;
+	td.field-title {
+	    font-weight: bold;
+	    width: 25%;
+	}
+    }
 }
 
 th {

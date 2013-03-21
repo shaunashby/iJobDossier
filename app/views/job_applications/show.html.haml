@@ -1,27 +1,35 @@
 %div.five.columns
-
- %h4= @job_application.jobtitle
-
  %span.link-back
   = link_to("Edit", edit_pool_application_path)
   = link_to("Back", pool_applications_path)
  %p
 
 %div.eleven.columns
- %table.jobapplication
+ %p
+ %table.job-application
   %tbody
    %tr
-    %td Job reference
+    %td.field-title Job Title:
+    %td= @job_application.jobtitle
+   %tr
+    %td.field-title Reference:
     %td= @job_application.jobref
    %tr
-    %td Deadline
+    %td.field-title Deadline:
     %td= @job_application.deadline
    %tr
-    %td Current Status
+    %td.field-title Status:
     %td= @job_application.status
+
+ %table.application-target
+  %tbody
+   %tr
+    %td.field-title Company:
+    %td= @job_application.application_target.company
+
  %table.dossier
   %tbody
    %tr
-    %td Dossier notes
+    %td.field-title Dossier notes:
     %td= @job_application.dossier.notes
 %br.clear
