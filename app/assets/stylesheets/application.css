@@ -12,5 +12,6 @@
  *= require base
  *= require skeleton
  *= require layout
+ *= require jquery.ui.datepicker
  *= require_tree .
  */
