@@ -21,7 +21,7 @@ class JobApplicationsController < ApplicationController
 
   # GET /job_application_pools/:pool_id/job_applications(.:format) pool_applications
   def index
-    @job_applications = JobApplicationPool.find(params[:pool_id]).job_applications
+    @job_applications = JobApplicationPool.find(params[:pool_id]).job_applications.order('ID asc')
     if @job_applications.empty?
       @job_application = JobApplication.new
       @application_target = ApplicationTarget.new

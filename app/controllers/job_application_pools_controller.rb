@@ -3,13 +3,13 @@ class JobApplicationPoolsController < ApplicationController
 
   # GET / root
   def welcome
-    @job_application_pools = JobApplicationPool.all
+    @job_application_pools = JobApplicationPool.find(:all, order: 'ID asc')
     @job_application_pool = JobApplicationPool.new
   end
 
   # GET /job_application_pools(.:format) pools
   def index
-    @job_application_pools = JobApplicationPool.all
+    @job_application_pools = JobApplicationPool.find(:all, order: 'ID asc')
 
     respond_to do |format|
       format.html # index.html.erb
