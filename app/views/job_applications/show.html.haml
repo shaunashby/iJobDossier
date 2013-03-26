@@ -16,7 +16,7 @@
     %td= @job_application.jobref
    %tr
     %td.field-title Deadline:
-    %td= @job_application.deadline
+    %td= @job_application.deadline.strftime("%d/%m/%y")
    %tr
     %td.field-title Status:
     %td= @job_application.status
