@@ -1,0 +1,9 @@
+// -*- javascript -*-
+$(document).ready(function() {
+    $(".job-application-pools").on("mouseenter","tr", function() {
+	$(this).addClass("tr-active-highlight");
+    }).on("mouseleave","tr", function() {
+	$(this).removeClass("tr-active-highlight");
+    })
+    console.log('Document loaded...');
+});
